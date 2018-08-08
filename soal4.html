@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <title>Soal 4</title>
+    </head>
+    <body>
+        <center>
+            Input time : <input type='number' id='time'>
+            <button onclick="countdown()"> Submit </button>
+            <br><br>
+            <p id='result'> Result </p>
+        </center>
+    </body>
+    <script>
+    var x = setInterval(countdown, 1000);
+    function countdown()
+    {
+        var input = document.getElementById('time').value;
+        var jam = Math.floor(input / 3600);
+        var sisa1 = Math.floor(input % 3600);
+        var menit = Math.floor(sisa1 / 60);
+        var detik = Math.floor(sisa1 % 60);
+        
+       if (detik > 0)
+       {
+           detik--;
+       }
+       else
+       {
+           if (menit > 0)
+           {
+               menit--;
+               detik = 60;
+           }
+           else
+           {
+               menit = 60;
+               detik = 60;
+               jam--;
+           }
+       }
+       if (jam >=0)
+       {
+           document.getElementById('result').innerHTML = jam + ' Hour ' + menit + ' Minute ' + detik +' Second';    
+       }
+       else
+       {
+           document.getElementById('result').innerHTML = 'Time Over';
+           clearInterval(x);
+       }
+    }
+    
+    </script>
+</html>

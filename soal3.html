@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <title>Soal 3</title>
+    </head>
+    <body>
+        <form id='login'>
+            Username : <input type='text' id='user'><br><br>
+            Password : <input type='password' id='pass'><br><br>
+            <button onclick="proses()">Submit</button>
+        </form>
+    </body>
+    <script>
+    function proses()
+    {
+        var array = [['vincentkeren','abc123'],['rianbocah','iloveagus']]
+        var id = document.getElementById('login').elements[0].value
+        var pass = document.getElementById('login').elements[1].value;
+        var valid = -1;
+        for (var i=0; i<array.length; i++)
+        {
+            if (id == array[i][0] && pass == array[i][1])
+            {
+                valid = i;
+                break;
+            }
+        }
+        if (valid != -1)
+        {
+           alert('Login Succes!');
+        }
+        else
+        {
+            alert('Login Fail !');
+        }
+    }
+    </script>
+</html>
